@@ -8,17 +8,18 @@ import {
   removeFavorites,
 } from "../../redux/favorites/favoritesSlice";
 import { getFavorites } from "../../redux/favorites/selectors";
+import Backdrop from "../Backdrop/Backdrop";
+import DetailsModal from "../DetailsModal/DetailsModal";
 const CatalogItem = ({ item }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const favorites = useSelector(getFavorites);
   const idx = favorites.findIndex((el) => el._id === item._id);
   const dispatch = useDispatch();
-  
+
   const toggleModal = () => {
-    setIsModalOpen(!isModalOpen)
-  }
-  
-  
+    setIsModalOpen(!isModalOpen);
+  };
+
   const handleFav = () => {
     if (idx === -1) {
       dispatch(addFavorites(item));
@@ -26,7 +27,7 @@ const CatalogItem = ({ item }) => {
     }
     dispatch(removeFavorites(item._id));
   };
-  
+
   const heartStyle = {
     fill: idx !== -1 ? "#e44848" : "#ffffff",
     stroke: idx !== -1 ? "#e44848" : "#101828",
@@ -70,8 +71,15 @@ const CatalogItem = ({ item }) => {
         </div>
         <p className={css.description}>{item.description}</p>
         <IconsSmallList data={item} />
-        <button onClick={setIsModalOpen} className={css.showMore}>Show more</button>
+        <button onClick={toggleModal} className={css.showMore}>
+          Show more
+        </button>
       </div>
+      {isModalOpen && (
+        <Backdrop close={toggleModal}>
+          <DetailsModal item={item} close={toggleModal} />
+        </Backdrop>
+      )}
     </li>
   );
 };

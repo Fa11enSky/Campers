@@ -1,0 +1,33 @@
+.item{
+    margin-bottom: 24px;
+}
+.firstLetter {
+  display: block;
+  width: 60px;
+  height: 60px;
+
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+  color: #e44848;
+  padding: 15px 21px;
+  background-color: #f2f4f7;
+  border-radius: 60px;
+}
+.name {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.33333;
+}
+.headWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.comment {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #475467;
+}
