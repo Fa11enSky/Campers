@@ -9,14 +9,12 @@ import {
   REGISTER,
 } from "redux-persist";
 import { campersReducer } from "./catalog/catalogSlice";
+import { persistReducerFavorites } from "./favorites/favoritesSlice";
 
 export const store = configureStore({
   reducer: {
     catalog: campersReducer,
-    // auth: persistReducerAuth,
-    // boards: boardsReducer,
-    // support: supportReducer,
-    // filter: filterReducer,
+    favorites: persistReducerFavorites,
   },
 
   middleware: (getDefaultMiddleware) =>
@@ -27,4 +25,4 @@ export const store = configureStore({
     }),
 });
 
-// export const persistor = persistStore(store);
+export const persistor = persistStore(store);

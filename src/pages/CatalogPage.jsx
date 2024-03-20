@@ -1,23 +1,16 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { selectAllCampers } from "../redux/catalog/selectors";
+import CatalogList from "../components/CatalogList/CatalogList";
+import { useDispatch } from "react-redux";
 import { getAllCampers } from "../redux/catalog/operations";
-import CatalogItem from "../components/CatalogItem/CatalogItem";
 
 const CatalogPage = () => {
-  const campers = useSelector(selectAllCampers);
-  console.log(campers)
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAllCampers());
-  }, [dispatch]);
+ const dispatch = useDispatch();
+ useEffect(() => {
+   dispatch(getAllCampers());
+ }, [dispatch]);
   return (
     <div>
-      <ul>
-        {campers.map((el) => (
-          <CatalogItem item={el} />
-        ))}
-      </ul>
+     <CatalogList/>
     </div>
   );
 };
