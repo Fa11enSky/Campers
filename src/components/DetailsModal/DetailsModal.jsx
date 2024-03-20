@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import svg from "../../assets/sprite.svg";
 import css from "./styles.module.css";
 import Reviews from "../Reviews/Reviews";
+import Features from "../Features/Features";
 const DetailsModal = ({ item, close }) => {
   const [isReviewsShow, setIsReviewsShow] = useState({
+    visibility: false,
+    isActive: false,
+  });
+  const [isFeatureShow, setIsFeatureShow] = useState({
     visibility: false,
     isActive: false,
   });
@@ -11,6 +16,13 @@ const DetailsModal = ({ item, close }) => {
     setIsReviewsShow({
       visibility: !isReviewsShow.visibility,
       isActive: !isReviewsShow.isActive,
+    });
+      
+  };
+  const toggleFeature = (params) => {
+    setIsFeatureShow({
+      visibility: !isFeatureShow.visibility,
+      isActive: !isFeatureShow.isActive,
     });
   };
 
@@ -46,11 +58,19 @@ const DetailsModal = ({ item, close }) => {
       </ul>
       <p className={css.description}>{item.description}</p>
       <div className={css.btnWrapper}>
-        <button>Features</button>
-        <button onClick={toggleReviews} className={isReviewsShow.isActive&&css.isActive}>Reviews</button>
+        <button onClick={toggleFeature} className={isFeatureShow.isActive ? css.isActive : null}>
+          Features
+        </button>
+        <button
+          onClick={toggleReviews}
+          className={isReviewsShow.isActive ? css.isActive : null}
+        >
+          Reviews
+        </button>
       </div>
       <hr className={css.hr} />
       {isReviewsShow.visibility && <Reviews rev={item.reviews} />}
+      {isFeatureShow.visibility&&<Features item={item} />}
     </div>
   );
 };

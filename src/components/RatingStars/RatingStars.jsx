@@ -12,7 +12,7 @@ const RatingStars = ({ rating }) => {
           <span key={index}>
             <FaStar
               color={index < filledStars ? "#ffc531" : "#f2f4f7"}
-              style={{ marginRight: "2px" }}
+              style={{ marginRight: "4px" }}
             />
           </span>
         );

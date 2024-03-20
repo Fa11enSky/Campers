@@ -1,0 +1,30 @@
+.featuresEl {
+  width: 430px;
+}
+.table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
+.tableHeader {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  text-align: left;
+}
+.table > tbody > tr > td {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.33333;
+  color: #101828;
+}
+.table td {
+  text-align: left;
+}
+
+.table td:nth-child(2) {
+  text-align: right;
+}

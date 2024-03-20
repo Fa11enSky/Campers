@@ -1,0 +1,22 @@
+.icon {
+  stroke-width: 1.5;
+  stroke: currentColor;
+  fill: #fff;
+}
+.detailsList {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.item {
+  background-color: #f2f4f7;
+  padding: 12px 18px;
+  border-radius: 100px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+  display: flex;
+  gap: 8px;
+}
