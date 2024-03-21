@@ -1,0 +1,99 @@
+.filterWrapper {
+  width: 360px;
+}
+.location {
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(16, 24, 40, 0.6);
+}
+.locationLabel {
+  width: 100%;
+  display: block;
+  position: relative;
+  margin-bottom: 32px;
+}
+.locationInput {
+  width: 100%;
+  padding: 18px 18px 18px 44px;
+  border: none;
+  outline: none;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 1.25;
+}
+.svg {
+  fill: #fff;
+  stroke: #000;
+}
+.locationLabel > .svg {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+}
+.filtresTitle {
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #475467;
+  margin-bottom: 14px;
+}
+.equipment {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+.hr {
+  border-color: rgba(16, 24, 40, 0.1);
+  margin-bottom: 24px;
+}
+.equipmentList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.equipmentList input {
+  display: none;
+}
+.equipmentList > li > label {
+  cursor: pointer;
+  width: 112px;
+  height: 95px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+  color: #101828;
+}
+.equipmentCheckbox:checked ~ label,
+.typeCheckbox:checked ~ label {
+  border-color: #e44848;
+}
+.serchBtn {
+  border: none;
+  outline: none;
+  background-color: #e44848;
+  border-radius: 200px;
+  padding: 16px 60px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: #fff;
+  transition: background-color 250ms linear;
+}
+.serchBtn:hover {
+  background-color: #d84343;
+}

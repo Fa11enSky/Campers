@@ -10,13 +10,13 @@ const Features = ({ item }) => {
 
       <table className={css.table}>
         <thead>
-          <tr>
+          <tr className={css.tableHeaderRow}>
             <th className={css.tableHeader}>Vehicle details</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Form</td>
+            <td className={css.firstElTable}>Form</td>
             <td>{item.form}</td>
           </tr>
           <tr>

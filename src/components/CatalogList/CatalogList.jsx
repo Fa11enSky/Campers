@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { selectAllCampers } from "../../redux/catalog/selectors";
+import { filter, selectAllCampers } from "../../redux/catalog/selectors";
 import { useSelector } from "react-redux";
 import CatalogItem from "../CatalogItem/CatalogItem";
 import css from "./styles.module.css";
@@ -10,6 +10,24 @@ const CatalogList = () => {
   const [toShow, setToShow] = useState([]);
   const [isMore, setIsMore] = useState(true);
   const total = Math.ceil(campers.length / 4);
+  const filters = useSelector(filter)
+  
+const toFilter = campers.filter(item => {
+    return (
+      (!filters.location || item.location === filter.location) &&
+      (!filters.ac || item.details.airConditioner === 1) &&
+      (!filters.automatic || item.transmission === "automatic") &&
+      (!filters.kitchen || item.details.kitchen === 1) &&
+      (!filters.tv || item.details.TV === 1) &&
+      (!filters.bathroom || item.details.bathroom === 1) &&
+      (!filters.van || item.van === 1) &&
+      (!filters.fullyIntegrated || item.details.fullyIntegrated === 1) &&
+      (!filters.alcove || item.form === "alcove")
+    );
+  })
+
+
+
   useEffect(() => {
     if (campers.length === 0) return;
     const d = campers.filter((_, idx) => {

@@ -13,9 +13,14 @@ import DetailsModal from "../DetailsModal/DetailsModal";
 const CatalogItem = ({ item }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const favorites = useSelector(getFavorites);
+  
   const idx = favorites.findIndex((el) => el._id === item._id);
+  
   const dispatch = useDispatch();
-
+  
+  const { price } = item
+  const formattedPrice = price.toFixed(2).replace(".", ",");
+  
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -42,7 +47,7 @@ const CatalogItem = ({ item }) => {
         <div className={css.titleWrapper}>
           <h3 className={css.itemTitle}>{item.name}</h3>
           <div className={css.priceWrapper}>
-            <span className={css.price}>€{item.price}</span>
+            <span className={css.price}>€{formattedPrice}</span>
             <button onClick={handleFav} className={css.favBtn}>
               <svg
                 style={heartStyle}

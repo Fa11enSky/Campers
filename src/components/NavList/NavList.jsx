@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
+import css from './styels.module.css'
 const NavList = () => {
   return (
-    <ul>
+    <ul className={css.headerNav}>
       <li>
         <NavLink to={"/"}>Home</NavLink>
       </li>

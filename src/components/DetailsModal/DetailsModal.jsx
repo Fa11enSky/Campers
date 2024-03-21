@@ -3,28 +3,16 @@ import svg from "../../assets/sprite.svg";
 import css from "./styles.module.css";
 import Reviews from "../Reviews/Reviews";
 import Features from "../Features/Features";
+import CamperForm from "../CamperForm/CamperForm";
 const DetailsModal = ({ item, close }) => {
-  const [isReviewsShow, setIsReviewsShow] = useState({
-    visibility: false,
-    isActive: false,
-  });
-  const [isFeatureShow, setIsFeatureShow] = useState({
-    visibility: false,
-    isActive: false,
-  });
-  const toggleReviews = () => {
-    setIsReviewsShow({
-      visibility: !isReviewsShow.visibility,
-      isActive: !isReviewsShow.isActive,
-    });
-      
+  const [activeTab, setActiveTab] = useState(0);
+
+  const handleTabClick = (tabNumber) => {
+    setActiveTab(tabNumber);
   };
-  const toggleFeature = (params) => {
-    setIsFeatureShow({
-      visibility: !isFeatureShow.visibility,
-      isActive: !isFeatureShow.isActive,
-    });
-  };
+
+  const { price } = item
+  const formattedPrice = price.toFixed(2).replace(".", ",");
 
   return (
     <div className={css.detailsModal}>
@@ -48,7 +36,7 @@ const DetailsModal = ({ item, close }) => {
           {item.location}
         </span>
       </div>
-      <span className={css.price}>€{item.price}</span>
+      <span className={css.price}>€{formattedPrice}</span>
       <ul className={css.imageList}>
         {item.gallery.map((el, idx) => (
           <li className={css.imageItem} key={idx}>
@@ -58,19 +46,25 @@ const DetailsModal = ({ item, close }) => {
       </ul>
       <p className={css.description}>{item.description}</p>
       <div className={css.btnWrapper}>
-        <button onClick={toggleFeature} className={isFeatureShow.isActive ? css.isActive : null}>
+        <button
+          onClick={() => handleTabClick(1)}
+          className={activeTab === 1 ? css.isActive : null}
+        >
           Features
         </button>
         <button
-          onClick={toggleReviews}
-          className={isReviewsShow.isActive ? css.isActive : null}
+          onClick={() => handleTabClick(2)}
+          className={activeTab === 2 ? css.isActive : null}
         >
           Reviews
         </button>
       </div>
       <hr className={css.hr} />
-      {isReviewsShow.visibility && <Reviews rev={item.reviews} />}
-      {isFeatureShow.visibility&&<Features item={item} />}
+      <div className={css.addWrapper}>
+        {activeTab === 1 && <Features item={item} />}
+        {activeTab === 2 && <Reviews rev={item.reviews} />}
+        {activeTab !== 0 && <CamperForm />}
+      </div>
     </div>
   );
 };

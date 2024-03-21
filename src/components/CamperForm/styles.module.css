@@ -1,0 +1,49 @@
+.form {
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 10px;
+  padding: 24px;
+  width: 448px;
+  height: 532px;
+}
+.header {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  padding-bottom: 8px;
+}
+.description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #475467;
+  padding-bottom: 24px;
+}
+.form > input,
+.form > textarea {
+  margin-bottom: 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 1.25;
+  background-color: #f7f7f7;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+.form > textarea {
+  resize: none;
+  width: 100%;
+  height: 114px;
+  margin-bottom: 24px;
+}
+.smbBtn {
+  background-color: #e44848;
+  border: none;
+  outline: none;
+  padding: 16px 60px;
+  border-radius: 200px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
