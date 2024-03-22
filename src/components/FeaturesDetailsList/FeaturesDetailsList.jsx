@@ -3,7 +3,7 @@ import svg from "../../assets/sprite.svg";
 import css from "./styles.module.css";
 const FeaturesDetailsList = ({ details }) => {
   const iconsMapping = {
-    AC:"icon-ac",
+    AC: "icon-ac",
     adults: "icon-user",
     airConditioner: "icon-conditioner",
     bathroom: "icon-bathroom",
@@ -22,17 +22,22 @@ const FeaturesDetailsList = ({ details }) => {
     transmission: "icon-transmission",
     engine: "icon-gas",
   };
-
+  
   const data = [];
+  
   for (const key in details) {
-    
-    if (key === "transmission" || key === "engine" || Number.parseInt(details[key]) >= 1)
+    if (
+      key === "transmission" ||
+      key === "engine" ||
+      Number.parseInt(details[key]) !== 0
+    ) {
       if (key === "airConditioner") {
-        data.splice(2,0,"AC")
+        data.splice(2, 0, "AC");
       }
-        data.push(key);
+      data.push(key);
+    }
   }
-  console.log(data)
+  
   return (
     <ul className={css.detailsList}>
       {data.map((key, index) => (

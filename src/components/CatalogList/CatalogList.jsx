@@ -28,6 +28,7 @@ const CatalogList = () => {
         (!filters.kitchen || item.details.kitchen >= 1) &&
         (!filters.tv || item.details.TV >= 1) &&
         (!filters.bathroom || item.details.bathroom >= 1) &&
+        (filters.van||filters.fullyIntegrated||filters.alcove)&&
         ((filters.van && item.form === "panelTruck" ) ||
         (filters.fullyIntegrated && item.form === "fullyIntegrated") ||
         (filters.alcove && item.form === "alcove"))
