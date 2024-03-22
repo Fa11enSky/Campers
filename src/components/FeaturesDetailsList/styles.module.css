@@ -1,7 +1,5 @@
 .icon {
-  stroke-width: 1.5;
   stroke: currentColor;
-  fill: #fff;
 }
 .detailsList {
   display: flex;

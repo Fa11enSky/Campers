@@ -12,9 +12,8 @@ const CatalogList = () => {
   const [toShow, setToShow] = useState([]);
 
   const loadMore = () => {
-    setDisplayedCards(displayedCards + 4); // Додати 4 до кількості відображених карточок
+    setDisplayedCards(displayedCards + 4);
   };
-  // console.log(Object.keys(campers[0]))
   useEffect(() => {
     if (Object.values(filters).every((el) => Boolean(el) === false)) {
       setToShow(campers);
@@ -29,14 +28,16 @@ const CatalogList = () => {
         (!filters.kitchen || item.details.kitchen >= 1) &&
         (!filters.tv || item.details.TV >= 1) &&
         (!filters.bathroom || item.details.bathroom >= 1) &&
-        (!filters.van || item.form === "van") &&
-        (!filters.fullyIntegrated || item.form === "fullyIntegrated") &&
-        (!filters.alcove || item.form === "alcove")
+        ((filters.van && item.form === "panelTruck" ) ||
+        (filters.fullyIntegrated && item.form === "fullyIntegrated") ||
+        (filters.alcove && item.form === "alcove"))
       );
     });
-    setToShow(filtred)
+    setToShow(filtred);
   }, [campers, filters]);
-
+  useEffect(() => {
+    setDisplayedCards(4);
+  }, [filters]);
   return (
     <div>
       <ul>
