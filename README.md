@@ -4,7 +4,7 @@ ComfortRV is a web application that helps users find the perfect camper for thei
 
 ## Review
 
-The camper selector offers the following options:
+The "ComfortRV" offers the following options:
 
 - View different models of campers.
 - Detailed information about each camper, including photos, description, specifications and reviews.
