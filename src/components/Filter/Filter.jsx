@@ -5,29 +5,40 @@ import { useDispatch } from "react-redux";
 import { filterUse } from "../../redux/catalog/filterSlice";
 const Filter = () => {
   const dispatch = useDispatch();
-  const [filter, setFilter] = useState({
-    location: "",
+  const [location, setlocation] = useState("");
+  const [details, setDetails] = useState({
     ac: false,
     automatic: false,
     kitchen: false,
     tv: false,
     bathroom: false,
-    van: false,
+  });
+  const [forms, setForms] = useState({
+    panelTruck: false,
     fullyIntegrated: false,
     alcove: false,
   });
   const handleClick = () => {
-    dispatch(filterUse(filter));
+    dispatch(filterUse({ location, details, forms }));
   };
 
   const handleLocation = (ev) => {
     const { value } = ev.target;
-    setFilter({ ...filter, location: value });
+    setlocation(value);
   };
-
   const handleCheckboxChange = (event) => {
-    const { name, checked } = event.target;
-    setFilter({ ...filter, [name]: checked });
+    const { name, value, checked } = event.target;
+    switch (name) {
+      case "forms":
+        setForms({ ...forms, [value]: checked });
+        break;
+      case "details":
+        setDetails({ ...details, [value]: checked });
+        break;
+
+      default:
+        break;
+    }
   };
   return (
     <div className={css.filterWrapper}>
@@ -38,7 +49,7 @@ const Filter = () => {
         </svg>
         <input
           onChange={handleLocation}
-          value={filter.location}
+          value={location}
           name="location"
           placeholder="Kyiv, Ukraine"
           className={css.locationInput}
@@ -51,11 +62,12 @@ const Filter = () => {
       <ul className={css.equipmentList}>
         <li>
           <input
-            checked={filter.ac}
+            checked={details.ac}
             onChange={handleCheckboxChange}
             className={css.equipmentCheckbox}
             type="checkbox"
-            name="ac"
+            name="details"
+            value="ac"
             id="ac"
           />
           <label htmlFor="ac">
@@ -67,11 +79,12 @@ const Filter = () => {
         </li>
         <li>
           <input
-            checked={filter.automatic}
+            checked={details.automatic}
             onChange={handleCheckboxChange}
             className={css.equipmentCheckbox}
             type="checkbox"
-            name="automatic"
+            name="details"
+            value="automatic"
             id="transmission"
           />
           <label htmlFor="transmission">
@@ -83,11 +96,12 @@ const Filter = () => {
         </li>
         <li>
           <input
-            checked={filter.kitchen}
+            checked={details.kitchen}
             onChange={handleCheckboxChange}
             className={css.equipmentCheckbox}
             type="checkbox"
-            name="kitchen"
+            name="details"
+            value="kitchen"
             id="kitchen"
           />
           <label htmlFor="kitchen">
@@ -99,11 +113,12 @@ const Filter = () => {
         </li>
         <li>
           <input
-            checked={filter.tv}
+            checked={details.tv}
             onChange={handleCheckboxChange}
             className={css.equipmentCheckbox}
             type="checkbox"
-            name="tv"
+            name="details"
+            value="tv"
             id="tv"
           />
           <label htmlFor="tv">
@@ -115,11 +130,12 @@ const Filter = () => {
         </li>
         <li>
           <input
-            checked={filter.bathroom}
+            checked={details.bathroom}
             onChange={handleCheckboxChange}
             className={css.equipmentCheckbox}
             type="checkbox"
-            name="bathroom"
+            name="details"
+            value="bathroom"
             id="bathroom"
           />
           <label htmlFor="bathroom">
@@ -135,11 +151,12 @@ const Filter = () => {
       <ul className={css.equipmentList}>
         <li>
           <input
-            checked={filter.van}
+            checked={forms.van}
             onChange={handleCheckboxChange}
             className={css.typeCheckbox}
             type="checkbox"
-            name="van"
+            name="forms"
+            value="panelTruck"
             id="van"
           />
           <label htmlFor="van">
@@ -151,11 +168,12 @@ const Filter = () => {
         </li>
         <li>
           <input
-            checked={filter.fullyIntegrated}
+            checked={forms.fullyIntegrated}
             onChange={handleCheckboxChange}
             className={css.typeCheckbox}
             type="checkbox"
-            name="fullyIntegrated"
+            name="forms"
+            value="fullyIntegrated"
             id="fullyIntegrated"
           />
           <label htmlFor="fullyIntegrated">
@@ -167,11 +185,12 @@ const Filter = () => {
         </li>
         <li>
           <input
-            checked={filter.alcove}
+            checked={forms.alcove}
             onChange={handleCheckboxChange}
             className={css.typeCheckbox}
             type="checkbox"
-            name="alcove"
+            name="forms"
+            value="alcove"
             id="alcove"
           />
           <label htmlFor="alcove">

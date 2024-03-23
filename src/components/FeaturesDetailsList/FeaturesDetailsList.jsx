@@ -1,12 +1,12 @@
 import React from "react";
 import svg from "../../assets/sprite.svg";
 import css from "./styles.module.css";
+import { capitalizeFirstLetter } from "../../helpers/capitalizeFirstLetter";
 const FeaturesDetailsList = ({ details }) => {
   const iconsMapping = {
     AC: "icon-ac",
     adults: "icon-user",
-    airConditioner: "icon-conditioner",
-    bathroom: "icon-bathroom",
+    "air conditioner": "icon-conditioner",
     kitchen: "icon-kitchen",
     beds: "icon-bed",
     TV: "icon-tv",
@@ -22,10 +22,12 @@ const FeaturesDetailsList = ({ details }) => {
     transmission: "icon-transmission",
     engine: "icon-gas",
   };
-  
+
   const data = [];
-  
+
   for (const key in details) {
+    if (key === "bathroom") continue;
+
     if (
       key === "transmission" ||
       key === "engine" ||
@@ -33,11 +35,13 @@ const FeaturesDetailsList = ({ details }) => {
     ) {
       if (key === "airConditioner") {
         data.splice(2, 0, "AC");
+        data.push("air conditioner");
+      } else {
+        data.push(key);
       }
-      data.push(key);
     }
   }
-  
+
   return (
     <ul className={css.detailsList}>
       {data.map((key, index) => (
@@ -53,7 +57,7 @@ const FeaturesDetailsList = ({ details }) => {
               ? details[key]
               : ""}
             {key === "transmission" || key === "engine"
-              ? details[key]
+              ? capitalizeFirstLetter(details[key])
               : ` ${key}`}
           </span>
         </li>

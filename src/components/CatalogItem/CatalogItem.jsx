@@ -13,14 +13,13 @@ import DetailsModal from "../DetailsModal/DetailsModal";
 const CatalogItem = ({ item }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const favorites = useSelector(getFavorites);
-  
+
   const idx = favorites.findIndex((el) => el._id === item._id);
-  
+
   const dispatch = useDispatch();
-  
-  const { price } = item
+  const { price } = item;
   const formattedPrice = price.toFixed(2).replace(".", ",");
-  
+
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
