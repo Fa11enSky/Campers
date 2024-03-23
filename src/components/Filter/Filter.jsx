@@ -15,11 +15,7 @@ const Filter = () => {
     bathroom: false,
   });
 
-  const [forms, setForms] = useState({
-    panelTruck: false,
-    fullyIntegrated: false,
-    alcove: false,
-  });
+  const [forms, setForms] = useState('');
   const handleClick = () => {
     dispatch(filterUse({ location, details, forms }));
   };
@@ -29,19 +25,17 @@ const Filter = () => {
     setlocation(value);
   };
 
-  const handleCheckboxChange = (event) => {
-    const { name, value, checked } = event.target;
-    switch (name) {
-      case "forms":
-        setForms({ ...forms, [value]: checked });
-        break;
-      case "details":
-        setDetails({ ...details, [value]: checked });
-        break;
+  const handleRadio = (ev) => {
+    const { value } = ev.target
+    setForms(value)
+  }
+  
 
-      default:
-        break;
-    }
+  const handleCheckboxChange = (event) => {
+    const { value, checked } = event.target;
+    setDetails({ ...details, [value]: checked });
+    
+      
   };
   return (
     <aside className={css.filterWrapper}>
@@ -154,10 +148,9 @@ const Filter = () => {
       <ul className={css.equipmentList}>
         <li>
           <input
-            checked={forms.van}
-            onChange={handleCheckboxChange}
+            onChange={handleRadio}
             className={css.typeCheckbox}
-            type="checkbox"
+            type="radio"
             name="forms"
             value="panelTruck"
             id="van"
@@ -171,10 +164,9 @@ const Filter = () => {
         </li>
         <li>
           <input
-            checked={forms.fullyIntegrated}
-            onChange={handleCheckboxChange}
+            onChange={handleRadio}
             className={css.typeCheckbox}
-            type="checkbox"
+            type="radio"
             name="forms"
             value="fullyIntegrated"
             id="fullyIntegrated"
@@ -188,10 +180,9 @@ const Filter = () => {
         </li>
         <li>
           <input
-            checked={forms.alcove}
-            onChange={handleCheckboxChange}
+            onChange={handleRadio}
             className={css.typeCheckbox}
-            type="checkbox"
+            type="radio"
             name="forms"
             value="alcove"
             id="alcove"

@@ -33,17 +33,10 @@ export const filterCampers = (campers, filter) => {
     }
 
     const forms = filter.forms;
-    if (forms) {
-      const selectedForms = Object.entries(forms).filter(
-        ([_, isSelected]) => isSelected
-      );
-      if (selectedForms.length === 0) {
-        return true;
-      }
-      return selectedForms.some(([form, isSelected]) => {
-        return camper.form === form;
-      });
+    if (forms && camper.form !== forms) {
+      return false;
     }
+    
 
     return true;
   });
