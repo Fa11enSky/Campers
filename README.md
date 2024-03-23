@@ -1,4 +1,4 @@
-# Campers 
+# ComfortRV
 
 ComfortRV is a web application that helps users find the perfect camper for their trip or holiday. The application provides a convenient interface for viewing various models of campers, their characteristics and user reviews.
 
