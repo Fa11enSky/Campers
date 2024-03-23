@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Campers/static/css/main.1b758f0e.css",
+    "main.css": "/Campers/static/css/main.ee9b6d3c.css",
     "main.js": "/Campers/static/js/main.909c45ef.js",
     "static/js/453.dd53e008.chunk.js": "/Campers/static/js/453.dd53e008.chunk.js",
     "static/media/Inter-SemiBold.ttf": "/Campers/static/media/Inter-SemiBold.6058d3da655fb35169c2.ttf",
@@ -8,12 +8,12 @@
     "static/media/Inter-Regular.ttf": "/Campers/static/media/Inter-Regular.9ca9ba81e9dcaa12b3a1.ttf",
     "static/media/sprite.svg": "/Campers/static/media/sprite.fa65f28774ce9733c7263f05fb494e31.svg",
     "index.html": "/Campers/index.html",
-    "main.1b758f0e.css.map": "/Campers/static/css/main.1b758f0e.css.map",
+    "main.ee9b6d3c.css.map": "/Campers/static/css/main.ee9b6d3c.css.map",
     "main.909c45ef.js.map": "/Campers/static/js/main.909c45ef.js.map",
     "453.dd53e008.chunk.js.map": "/Campers/static/js/453.dd53e008.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1b758f0e.css",
+    "static/css/main.ee9b6d3c.css",
     "static/js/main.909c45ef.js"
   ]
 }
