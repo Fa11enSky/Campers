@@ -37,14 +37,18 @@ const DetailsModal = ({ item, close }) => {
         </span>
       </div>
       <span className={css.price}>€{formattedPrice}</span>
-      <ul className={css.imageList}>
-        {item.gallery.map((el, idx) => (
-          <li className={css.imageItem} key={idx}>
-            <img src={el} alt="camper" />
-          </li>
-        ))}
-      </ul>
-      <p className={css.description}>{item.description}</p>
+     <div className={css.infoWrapper}>
+        <div className={css.scroll}>
+          <ul className={css.imageList}>
+            {item.gallery.map((el, idx) => (
+              <li className={css.imageItem} key={idx}>
+                <img src={el} alt="camper" />
+              </li>
+            ))}
+          </ul>
+          <p className={css.description}>{item.description}</p>
+        </div>
+     </div>
       <div className={css.btnWrapper}>
         <button
           onClick={() => handleTabClick(1)}

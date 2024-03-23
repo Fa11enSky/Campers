@@ -3,6 +3,7 @@ import svg from "../../assets/sprite.svg";
 import css from "./styles.module.css";
 import { useDispatch } from "react-redux";
 import { filterUse } from "../../redux/catalog/filterSlice";
+
 const Filter = () => {
   const dispatch = useDispatch();
   const [location, setlocation] = useState("");
@@ -13,6 +14,7 @@ const Filter = () => {
     tv: false,
     bathroom: false,
   });
+
   const [forms, setForms] = useState({
     panelTruck: false,
     fullyIntegrated: false,
@@ -26,6 +28,7 @@ const Filter = () => {
     const { value } = ev.target;
     setlocation(value);
   };
+
   const handleCheckboxChange = (event) => {
     const { name, value, checked } = event.target;
     switch (name) {
@@ -41,7 +44,7 @@ const Filter = () => {
     }
   };
   return (
-    <div className={css.filterWrapper}>
+    <aside className={css.filterWrapper}>
       <span className={css.location}>Location</span>
       <label className={css.locationLabel}>
         <svg className={css.svg} width={18} height={20}>
@@ -204,7 +207,7 @@ const Filter = () => {
       <button onClick={handleClick} className={css.serchBtn}>
         Search
       </button>
-    </div>
+    </aside>
   );
 };
 

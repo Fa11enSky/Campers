@@ -1,6 +1,7 @@
 import React from "react";
 import FeaturesDetailsList from "../FeaturesDetailsList/FeaturesDetailsList";
 import css from "./stules.module.css";
+import { capitalizeFirstLetter } from "../../helpers/capitalizeFirstLetter";
 const Features = ({ item }) => {
   const { adults, transmission, engine } = item;
   const detailsFull = { adults, transmission, engine, ...item.details };
@@ -17,7 +18,7 @@ const Features = ({ item }) => {
         <tbody>
           <tr>
             <td className={css.firstElTable}>Form</td>
-            <td>{item.form}</td>
+            <td>{capitalizeFirstLetter(item.form)}</td>
           </tr>
           <tr>
             <td>Length</td>

@@ -4,10 +4,10 @@ import { Outlet } from 'react-router-dom'
 
 const Layout = () => {
   return (
-    <div>
+    <>
           <header><NavList /></header>
-          <Outlet/>
-    </div>
+         <main> <Outlet/></main>
+    </>
   )
 }
 
