@@ -1,6 +1,5 @@
 export const filterCampers = (campers, filter) => {
   return campers.filter((camper) => {
-    // Фільтруємо за місцезнаходженням
     if (
       filter.location &&
       !camper.location.toLowerCase().includes(filter.location.toLowerCase())
@@ -8,7 +7,6 @@ export const filterCampers = (campers, filter) => {
       return false;
     }
 
-    // Фільтруємо за деталями
     const details = filter.details;
     if (details) {
       if (
@@ -34,20 +32,19 @@ export const filterCampers = (campers, filter) => {
       }
     }
 
-    // Фільтруємо за формою кемперу
     const forms = filter.forms;
     if (forms) {
-      if (forms.panelTruck && camper.form !== "panelTruck") {
-        return false;
+      const selectedForms = Object.entries(forms).filter(
+        ([_, isSelected]) => isSelected
+      );
+      if (selectedForms.length === 0) {
+        return true;
       }
-      if (forms.fullyIntegrated && camper.form !== "fullyIntegrated") {
-        return false;
-      }
-      if (forms.alcove && camper.form !== "alcove") {
-        return false;
-      }
+      return selectedForms.some(([form, isSelected]) => {
+        return camper.form === form;
+      });
     }
 
-    return true; // Повертаємо true, якщо кемпер відповідає всім умовам фільтру
+    return true;
   });
 };
